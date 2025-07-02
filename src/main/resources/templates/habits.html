@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>My Habits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div th:if="${message}" class="message">
+  <p th:text="${message}"></p>
+</div>
+<h2>🌿 My Habits</h2>
+
+<div class="top-bar">
+  <p><strong>Total habits:</strong> <span th:text="${habits.size()}"></span></p>
+  <a href="/habits/new" class="button button-success">➕ Add Habit</a>
+</div>
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Created</th>
+    <th>Completed Days</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="habit : ${habits}">
+    <td th:text="${habit.title}"></td>
+    <td th:text="${habit.description}"></td>
+    <td th:text="${habit.createdAt}"></td>
+    <td th:text="${habit.completedDays}"></td>
+    <td>
+      <a th:href="@{/habits/complete/{id}(id=${habit.id})}" class="button">✅</a>
+      <a th:href="@{/habits/delete/{id}(id=${habit.id})}" class="button button-danger">🗑</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
