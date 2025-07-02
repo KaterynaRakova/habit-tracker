@@ -1,3 +1,6 @@
+<p align="center">
+  <img src="cover.png" alt="Habit Tracker Cover" width="100%">
+</p>
 # 🌿 Habit Tracker
 
 A simple habit tracking web application built with Spring Boot, Thymeleaf, and PostgreSQL.
