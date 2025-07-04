@@ -18,8 +18,7 @@ public class Habit {
     private String title;
     @Column(length = 500)
     private String description;
-    // can use the annotation the same
-    /*
+    /* can use the annotation the same
     @Column(updatable = false)
     @CreationTimestamp
     private LocalDate createdAt;
